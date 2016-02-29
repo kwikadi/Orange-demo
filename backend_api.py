@@ -1,20 +1,19 @@
-from flask import Flask
-import db_store
+from flask import Flask, request
+import database as db
+
 app = Flask(__name__)
 
-@app.route('/button')
+
+@app.route('/data', methods=['POST'])
 def button():
 	# read POSTed data
-	print ('Telemetry-button')
-	db_store.write()
-	return 'Hello button'
-
-@app.route('/menu')
-def menu():
-	# read POSTed data
-	print ('Telemetry-menu')
-	db_store.write('TELEMETRY', 'menu')
-	return 'Hello menu'
+	ttype = request.form.get('type')
+	titem = request.form.get('item')
+	print(ttype,titem)
+	print ('Telemetry data recieved')
+	# Send to DB
+	db.write(db.connection, (ttype, titem))
+	return ""
 
 if __name__ == '__main__':
 	app.run(debug = True)
