@@ -11,13 +11,18 @@ class Example(QtGui.QWidget):
         
     def initUI(self):               
         
-        qbtn = QtGui.QPushButton('Quit', self)
-        qbtn.clicked.connect(QtCore.QCoreApplication.instance().quit)
-        qbtn.resize(qbtn.sizeHint())
-        qbtn.move(50, 50)       
+        qbtn1 = QtGui.QPushButton('Button 1', self)
+        # qbtn1.clicked.connect(btnaction.btntwo)
+        qbtn1.resize(qbtn1.sizeHint())
+        qbtn1.move(10, 50)
+
+        qbtn2 = QtGui.QPushButton('Button 2', self)
+        # qbtn2.clicked.connect(btnaction.btnone)
+        qbtn2.resize(qbtn2.sizeHint())
+        qbtn2.move(100, 50)       
         
         self.setGeometry(300, 300, 250, 150)
-        self.setWindowTitle('Quit button')    
+        self.setWindowTitle('Telemetry Demo')    
         self.show()
         
 def main():
