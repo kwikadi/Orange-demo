@@ -3,13 +3,13 @@ import sqlite3
 connection = sqlite3.connect('test.db', check_same_thread=False)
 
 def create():
-	con.execute('''CREATE TABLE TELEMETRY
-	       (ID INT	PRIMARY KEY	NOT NULL,
+	connection.execute('''CREATE TABLE TELEMETRY
+	       (ID INT	NOT NULL,
 	       TYPE	CHAR(50)	NOT NULL,
 	       ITEM	CHAR(50));
 	       ''')
 
-	con.close()
+	connection.close()
 
 def write(con, values):
 	""" Execute an Insert SQL Query. """
